@@ -1,12 +1,12 @@
 import Todo from "./components/Todo";
 import "./App.css";
-import { getTasks } from "./utils/firebase";
+import TodoArray from "./components/TodoArray";
 
 function App() {
-  console.log(getTasks());
   return (
     <div className="App">
       <Todo />
+      <TodoArray />
     </div>
   );
 }

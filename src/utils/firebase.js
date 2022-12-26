@@ -1,5 +1,13 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  getFirestore,
+  updateDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB5yDH-lb-0GuchSvo-bMWxfXLY_1BWJtU",
@@ -14,9 +22,19 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(initializeApp);
 
-const todoCollectionRef = collection(db, "todo-list");
+export const todoCollectionRef = collection(db, "todo-list");
 
-export const getTasks = async () => {
-  const { docs } = await getDocs(todoCollectionRef);
-  return docs;
+export const createTodo = async (task) => {
+  await addDoc(todoCollectionRef, task);
+};
+
+export const removeTodo = async (id) => {
+  const todoDoc = doc(db, "todo-list", id);
+  await deleteDoc(todoDoc);
+};
+
+export const toggleTodo = async (todo) => {
+  const todoDoc = doc(db, "todo-list", todo.id);
+  const updatedTodo = { isDone: !todo.isDone };
+  updateDoc(todoDoc, updatedTodo);
 };
