@@ -137,11 +137,8 @@
   background-color: #ff4742;
 }
 
-/* CSS */
 .toggle-btn,
 .toggle-btn:after {
-  /* width: 150px;
-  height: 76px; */
   line-height: 78px;
   font-size: 0.8rem;
   font-family: "Bebas Neue", sans-serif;
@@ -241,14 +238,6 @@
     justify-content: space-between;
   }
 }
-/* @media (max-width: 768px) {
-  .toggle-btn,
-  .toggle-btn:after {
-    width: 100px;
-    height: 43px;
-    line-height: 88px;
-  }
-} */
 @media screen and (min-width: 992px) {
   .task-container {
     width: 80%;

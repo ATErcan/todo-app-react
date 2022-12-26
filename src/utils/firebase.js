@@ -4,18 +4,17 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDocs,
   getFirestore,
   updateDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB5yDH-lb-0GuchSvo-bMWxfXLY_1BWJtU",
-  authDomain: "todo-app-a7a0b.firebaseapp.com",
-  projectId: "todo-app-a7a0b",
-  storageBucket: "todo-app-a7a0b.appspot.com",
-  messagingSenderId: "949897299233",
-  appId: "1:949897299233:web:38db6cfd1d371e8433ea60",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

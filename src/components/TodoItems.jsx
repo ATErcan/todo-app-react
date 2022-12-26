@@ -6,12 +6,12 @@ const TodoItems = (props) => {
   const { id, isDone, task } = props.todo;
   const dispatch = useDispatch();
 
-  const handleDelete = (e) => {
+  const handleDelete = () => {
     removeTodo(id);
     dispatch(getTasks());
   };
 
-  const toggleComplete = (e) => {
+  const toggleComplete = () => {
     toggleTodo(props.todo);
     dispatch(getTasks());
   };
