@@ -7,13 +7,11 @@ const TodoItems = (props) => {
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {
-    e.preventDefault();
     removeTodo(id);
     dispatch(getTasks());
   };
 
   const toggleComplete = (e) => {
-    e.preventDefault();
     toggleTodo(props.todo);
     dispatch(getTasks());
   };
@@ -21,14 +19,29 @@ const TodoItems = (props) => {
   return (
     <div
       className="task-container"
-      style={{ backgroundColor: isDone ? "green" : "red" }}
+      style={{
+        backgroundImage: isDone
+          ? "linear-gradient(-180deg, #00d775, #00bd68)"
+          : "radial-gradient(100% 100% at 100% 0, #5adaff 0,#5468ff 100%)",
+      }}
     >
-      <h4>{task}</h4>
+      <h4
+        className="task-text"
+        style={{
+          textDecoration: isDone && "line-through #000",
+        }}
+      >
+        {task}
+      </h4>
       <div className="buttons">
-        <button className="btn toggle-btn" onClick={toggleComplete}>
-          Complete
+        <button
+          type="button"
+          className="btn toggle-btn"
+          onClick={toggleComplete}
+        >
+          {isDone ? "Uncomplete" : "Complete"}
         </button>
-        <button className="btn delete-btn" onClick={handleDelete}>
+        <button type="button" className="btn delete-btn" onClick={handleDelete}>
           Delete
         </button>
       </div>
